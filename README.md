@@ -30,6 +30,14 @@ Requirements
   
   Should be setup and configured on your cluster nodes. Here is a good [page describing](https://www.digitalocean.com/community/tutorials/introduction-to-ganglia-on-ubuntu-14-04) how to do that.
   
+  Noticed gmond was using nearly 100% of CPU on slave nodes, this [link ](https://adamo.wordpress.com/2015/05/27/gmond-occupying-100-of-the-cpu/) describes how to fix it.
+  
+  Also, this contains a bunch of extra metrics which are nice for linux, io,fs, multiple_cpu
+  
+  ```sudo apt-get install ganglia-modules-linux```
+  
+  then edit config. files for this module in /etc/ganglia/conf.d (e.g. mod_fs.conf-sample, mod_multicpu.conf-sample)
+  
   
 Installation openstack-trigger
 ===============================
