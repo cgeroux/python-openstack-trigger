@@ -1,0 +1,12 @@
+<actions version="0.0">
+
+  <action>
+    <id>vm-terminate</id>
+    <parameters>
+      <terminate-instance>
+        <instance>test</instance>
+      </terminate-instance>
+    </parameters>
+  </action>
+  
+</actions>

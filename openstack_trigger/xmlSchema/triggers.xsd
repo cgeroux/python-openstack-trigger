@@ -1,0 +1,51 @@
+<xs:schema 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cm="cm"
+  delemntFormDefault="qualified">
+  
+  <xs:import schemaLocation="common.xsd" namespace="cm" />
+  
+  <xs:element name="triggers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="trigger" type="trigger-type" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="trigger-type">
+    <xs:all>
+      <xs:element name="metric" type="metric-type" />
+      <xs:element name="action-file" type="cm:non-empty-str" />
+      <xs:element name="reference" type="cm:non-empty-str" />
+      <xs:element name="comparison" type="comparison-type" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="metric-type">
+    <xs:all>
+      <xs:element name="name" type="cm:non-empty-str" />
+      <xs:element name="combine" type="cm:non-empty-str" />
+      <xs:element name="hosts" type="hosts-type"/>
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:simpleType name="comparison-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lt"/>
+      <xs:enumeration value="gt"/>
+      <xs:enumeration value="eq"/>
+      <xs:enumeration value="ne"/>
+      <xs:enumeration value="le"/>
+      <xs:enumeration value="ge"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="hosts-type">
+    <xs:sequence>
+      <xs:element name="hostname" type="cm:non-empty-str" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

@@ -1,0 +1,32 @@
+<triggers>
+  
+  <trigger>
+    
+    <metric><!-- contains info. about how to construct the metric-->
+      
+      <name>load_one</name><!--Name of the Ganglia metric to trigger on-->
+      
+      <combine>max</combine><!-- specify how the metric values
+        on the matching host names are combined possible values are:
+        max,min,ave,sum.-->
+        
+      <hosts><!--List of hostnames to get metrics of to construct the combined
+        metric from-->
+        <hostname>*</hostname><!-- can use the "*" wild character -->
+      </hosts>
+      
+    </metric>
+    
+    <reference>0.0</reference><!--value to compare the constructed metric to-->
+    
+    <comparison>ge</comparison><!--type of comparison to make with reference
+      value e.g. "<" means when (constructed metric)<(reference) causes the actions 
+      described by the action-file to be triggered, possible options are: "lt", "gt"
+      ,"eq", "ne","le","ge" for less than, greater than, equal, not equal
+      , less than or equal, greater than or equal respectively.-->
+    
+    <action-file>./create_vm.xml</action-file><!--what to do if <metric> <comparison> <reference>-->
+    
+  </trigger>
+  
+</triggers>

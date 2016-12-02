@@ -1,6 +1,6 @@
 include LICENSE
-#include openstack_trigger/xmlSchema/actions.xsd
-#include openstack_trigger/xmlSchema/common.xsd
+include openstack_trigger/xmlSchema/triggers.xsd
+include openstack_trigger/xmlSchema/common.xsd
 #include openstack_trigger/xmlSchema/parameter-types.xsd
 #include openstack_trigger/example_action_xml_files/backup_server.xml
 #include openstack_trigger/example_action_xml_files/delete_server_volumes_and_images.xml

@@ -26,6 +26,7 @@ Requirements
   pip install --user lxml
   ```
   Or if using python3 with pip3 then replace ```pip``` with ```pip3```
+  
 + Ganglia
   
   Should be setup and configured on your cluster nodes. Here is a good [page describing](https://www.digitalocean.com/community/tutorials/introduction-to-ganglia-on-ubuntu-14-04) how to do that.
@@ -38,6 +39,7 @@ Requirements
   
   then edit config. files for this module in /etc/ganglia/conf.d (e.g. mod_fs.conf-sample, mod_multicpu.conf-sample)
   
++ python-openstack-executor
   
 Installation openstack-trigger
 ===============================

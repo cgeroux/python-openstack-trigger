@@ -1,0 +1,18 @@
+<actions version="0.0">
+
+  <action>
+    <id>vm-create</id>
+    <parameters>
+      <create-instance>
+        <name>test</name>
+        <flavor>c1-7.5gb-30</flavor><!--west cloud-->
+        <!--<flavor>c4-15gb-205</flavor>east cloud-->
+        <instance-boot-source>
+          <image>ubuntu-server-14.04-amd64</image>
+        </instance-boot-source>
+        <already-exists>overwrite</already-exists>
+      </create-instance>
+    </parameters>
+  </action>
+  
+</actions>
