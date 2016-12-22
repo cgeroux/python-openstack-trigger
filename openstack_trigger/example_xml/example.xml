@@ -1,4 +1,5 @@
 <triggers>
+  <check-frequency>3600</check-frequency>
   
   <trigger>
     
@@ -25,7 +26,7 @@
       ,"eq", "ne","le","ge" for less than, greater than, equal, not equal
       , less than or equal, greater than or equal respectively.-->
     
-    <action-file>./create_vm.xml</action-file><!--what to do if <metric> <comparison> <reference>-->
+    <action-file>./create_ganglia_vm.xml</action-file><!--what to do if <metric> <comparison> <reference>-->
     
   </trigger>
   
