@@ -4,15 +4,15 @@
     <id>vm-create</id>
     <parameters>
       <create-instance>
-        <name>test</name>
-        <instance-count>2</instance-count>
+        <name>test-scaling-2</name>
+        <instance-count>1</instance-count>
         <flavor>c1-7.5gb-30</flavor><!--west cloud-->
         <!--<flavor>c4-15gb-205</flavor>east cloud-->
         <instance-boot-source>
-          <image>ubuntu-server-14.04-amd64</image>
+          <image>ubuntu-server-16.04-amd64</image><!--must match the name of an available images in openstack-->
         </instance-boot-source>
         <already-exists>rename</already-exists>
-        <post-creation-script>test_cloud_init.yaml</post-creation-script>
+        <post-creation-script>ganglia_slave.yaml</post-creation-script>
         <key-name>thekey</key-name>
       </create-instance>
     </parameters>

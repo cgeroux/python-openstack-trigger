@@ -1,0 +1,12 @@
+#cloud-config
+package_update: true
+#package_upgrade: true
+packages:
+  - ganglia-monitor
+  - ganglia-modules-linux
+runcmd:
+  - ["sed","-i","/  mcast_join = 239.2.11.71/s/.*/  host = 192.168.220.115/","/etc/ganglia/gmond.conf"]
+  - ["sed","-i","/  deaf =/s/.*/  deaf = yes/","/etc/ganglia/gmond.conf"]
+  - ["sed","-i","/  host_dmax =/s/.*/  host_dmax = 300/","/etc/ganglia/gmond.conf"]
+  - ["service","ganglia-monitor","restart"]
+  

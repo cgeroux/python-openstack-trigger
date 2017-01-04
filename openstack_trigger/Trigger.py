@@ -53,6 +53,8 @@ class Trigger(object):
     if self.metricCombine=="ave":
       count=0
     for hostName in filteredHostNames:
+      print("hostName=",hostName)
+      print("metricName=",self.metricName)
       value=getMetricValueForHost(self.metricName,hostName)
       
       if self.metricCombine=="max":
@@ -62,6 +64,7 @@ class Trigger(object):
         if float(value)<combinedMetric:
           combinedMetric=float(value)
       elif self.metricCombine=="sum" or metricCombine=="ave":
+        print("value=",value)
         combinedMetric=combinedMetric+float(value)
       if self.metricCombine=="ave":
         count+=1
