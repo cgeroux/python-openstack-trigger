@@ -54,17 +54,20 @@ class Trigger(object):
       count=0
     for hostName in filteredHostNames:
       value=getMetricValueForHost(self.metricName,hostName)
-      
-      if self.metricCombine=="max":
-        if float(value)>combinedMetric:
-          combinedMetric=float(value)
-      elif self.metricCombine=="min":
-        if float(value)<combinedMetric:
-          combinedMetric=float(value)
-      elif self.metricCombine=="sum" or metricCombine=="ave":
-        combinedMetric=combinedMetric+float(value)
-      if self.metricCombine=="ave":
-        count+=1
+      print("hostName=",hostName)
+      print("self.metricName=",self.metricName)
+      print("value=",value)
+      if value!=None:
+        if self.metricCombine=="max":
+          if float(value)>combinedMetric:
+            combinedMetric=float(value)
+        elif self.metricCombine=="min":
+          if float(value)<combinedMetric:
+            combinedMetric=float(value)
+        elif self.metricCombine=="sum" or metricCombine=="ave":
+          combinedMetric=combinedMetric+float(value)
+        if self.metricCombine=="ave":
+          count+=1
     if self.metricCombine=="ave":
       combinedMetric=combinedMetric/float(count)
     

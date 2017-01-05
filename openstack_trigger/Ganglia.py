@@ -17,7 +17,7 @@ class Ganglia(object):
     """Get data from the Ganglia host
     
     Will overwrite any previous data with more up-to-date data
-    it is stored in self.hosts
+    it is stored in self.hostsData
     """
     
     if self.host==None or self.port==None:

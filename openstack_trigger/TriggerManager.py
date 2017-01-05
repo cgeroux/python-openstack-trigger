@@ -32,6 +32,9 @@ class TriggerManager(object):
         +"--------------------")
       print(timeString+": checking triggers ...")
       
+      #get new, more up-to-date ganglia data
+      self.ganglia.getData()
+      
       #check triggers and perform actions as needed
       for trigger in self.triggers:
         if trigger.check(self.ganglia.getHostNames()

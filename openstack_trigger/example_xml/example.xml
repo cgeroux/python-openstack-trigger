@@ -1,11 +1,18 @@
 <triggers>
-  <check-frequency>300</check-frequency><!-- frequency triggers are checked in seconds-->
+  <check-frequency>180</check-frequency><!-- frequency triggers are checked in 
+    seconds. It is probably a good idea to make this number larger than the 
+    time it takes triggered actions to complete so that the results of the
+    triggered actions can be taken into account when the triggers are checked
+    again.-->
   
   <trigger>
     
-    <metric><!-- contains info. about how to construct the metric-->
+    <metric><!-- contains info. about how to construct the metric used to 
+      determine if a trigger is triggered.-->
       
-      <name>cpu_num</name><!--Name of the Ganglia metric to trigger on-->
+      <name>cpu_num</name><!--Name of the Ganglia metric to trigger on. To 
+        see a list of all metrics, run the "openstack-trigger" command with the
+        "--list-metrics" option on the ganglia master node.-->
       
       <combine>sum</combine><!-- specify how the metric values
         on the matching host names are combined possible values are:
@@ -13,12 +20,13 @@
         
       <hosts><!--List of hostnames to get metrics of to construct the combined
         metric from-->
-        <hostname>*</hostname><!-- can use the "*" wild character -->
+        <hostname>*</hostname><!-- can use the "*" wild character and can have
+          multiple hostname elements.-->
       </hosts>
       
     </metric>
     
-    <reference>10.0</reference><!--value to compare the constructed metric to-->
+    <reference>3.0</reference><!--value to compare the constructed metric to-->
     
     <comparison>lt</comparison><!--type of comparison to make with reference
       value e.g. "<" means when (constructed metric)<(reference) causes the actions 
@@ -26,7 +34,9 @@
       ,"eq", "ne","le","ge" for less than, greater than, equal, not equal
       , less than or equal, greater than or equal respectively.-->
     
-    <action-file>./create_ganglia_slave_vm.xml</action-file><!--what to do if <metric> <comparison> <reference>-->
+    <action-file>./create_ganglia_slave_vm.xml</action-file><!--what to do if 
+      <metric> <comparison> <reference> is true. this should be an xml file 
+      for the "openstack-executor" command.-->
     
   </trigger>
   
