@@ -12,7 +12,7 @@
       
       <name>cpu_num</name><!--Name of the Ganglia metric to trigger on. To 
         see a list of all metrics, run the "openstack-trigger" command with the
-        "--list-metrics" option on the ganglia master node.-->
+        "list-metrics" option on the ganglia master node.-->
       
       <combine>sum</combine><!-- specify how the metric values
         on the matching host names are combined possible values are:
