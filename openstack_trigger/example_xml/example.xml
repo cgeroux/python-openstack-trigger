@@ -20,7 +20,7 @@
     
     <reference>10.0</reference><!--value to compare the constructed metric to-->
     
-    <comparison>ge</comparison><!--type of comparison to make with reference
+    <comparison>lt</comparison><!--type of comparison to make with reference
       value e.g. "<" means when (constructed metric)<(reference) causes the actions 
       described by the action-file to be triggered, possible options are: "lt", "gt"
       ,"eq", "ne","le","ge" for less than, greater than, equal, not equal

@@ -20,7 +20,6 @@ class TriggerManager(object):
     xmlTriggers=xml.findall("trigger")
     for xmlTrigger in xmlTriggers:
       self.triggers.append(Trigger(xmlTrigger,options))
-    
   def run(self):
     """
     """
@@ -43,4 +42,5 @@ class TriggerManager(object):
       timeElapsed=time.time()-self.lastCheck
       waitTime=self.checkFrequency-timeElapsed
       if waitTime>0:
+        print("waiting "+str(waitTime)+" s before checking again ...")
         time.sleep(waitTime)
