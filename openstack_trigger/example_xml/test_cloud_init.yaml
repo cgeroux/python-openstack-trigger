@@ -1,3 +1,0 @@
-#cloud-config
-runcmd:
-  - ["touch", "/home/ubuntu/hello_world.txt"]

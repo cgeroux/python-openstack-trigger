@@ -1,0 +1,29 @@
+#cloud-config
+package_update: true
+#package_upgrade: true
+packages:
+  - apache2
+  - ganglia-monitor
+  - ganglia-modules-linux
+  - ganglia-webfrontend
+  - rrdtool
+  - gmetad
+  - python3-setuptools
+  - python3-lxml
+  - python3-openstackclient
+runcmd:
+  - ["cd","/home/ubuntu"]
+  - ["git","clone","https://github.com/cgeroux/python-config-ganglia.git"]
+  - ["git","clone","https://github.com/cgeroux/python-openstack-executor.git"]
+  - ["git","clone","https://github.com/cgeroux/python-openstack-trigger.git"]
+  - ["./python-config-ganglia/configure.py"]
+  - ["cd","python-openstack-executor"]
+  - ["python3","./setup.py","install"]
+  - ["cd","../python-openstack-trigger"]
+  - ["python3","./setup.py","install"]
+  - ["cd","../"]
+  #add master IP to ganglia_slave.yaml cloud init file so it knows how to connect to ganglia master
+  - 'sed -i "s/MASTERIP/$(hostname -I|tr -d [:space:])/" ./python-openstack-trigger/openstack_trigger/example_xml/ganglia_slave.yaml'
+  #You can't just run openstack-trigger, because you need to have the openstack credentials set in the terminal where it is run
+  #- ["openstack-trigger","./python-openstack-trigger/openstack_trigger/example_xml/example.xml"]
+  
